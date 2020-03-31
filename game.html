@@ -8,11 +8,41 @@
         <script>
             
             function computerPlay() {
-                let choice=["Rock","Paper","Scissors"];
+                let choice=["rock","paper","scissors"];
                /* return choice[Math.round(Math.random()*choice.length)]; */
                 return choice[Math.floor(Math.random()*choice.length)];
             }
-            
+
+            function playGame(playerSelection,computerSelection) {
+                playerSelection=playerSelection.toLowerCase();
+                if (playerSelection!='rock'&&playerSelection!='paper'&&playerSelection!='scissors') {
+                    return "You must enter rock, paper, or scissors";
+                } else if (playerSelection=='rock'&&computerSelection=='rock') {
+                    return "Both chose rock; play again";
+                } else if (playerSelection=='rock'&&computerSelection=='paper') {
+                    return "Computer chose paper; you lose!";
+                } else if (playerSelection=='rock'&&computerSelection=='scissors') {
+                    return "Computer chose scissors; you win!";
+                } else if (playerSelection=='paper'&&computerSelection=='rock') {
+                    return "Computer chose rock; you win!";
+                } else if (playerSelection=='paper'&&computerSelection=='paper') {
+                    return "Both chose paper; play again";
+                } else if (playerSelection=='paper'&&computerSelection=='scissors') {
+                    return "Computer chose scissors; you lose!";
+                } else if (playerSelection=='scissors'&&computerSelection=='rock') {
+                    return "Computer chose rock; you lose!";
+                } else if (playerSelection=='scissors'&&computerSelection=='paper') {
+                    return "Computer chose paper; you win!";
+                } else if (playerSelection=='scissors'&&computerSelection=='scissors') {
+                    return "Both chose scissors; play again";
+                } 
+            }
+
+
+            let playerSelection = prompt('Enter rock, paper or scissors','rock');
+            const computerSelection = computerPlay();
+            console.log(playGame(playerSelection,computerSelection));
+
         </script>
     </body>
 </html>
