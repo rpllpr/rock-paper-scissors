@@ -13,7 +13,6 @@
             }
 
             function playGame(playerSelection,computerSelection) {
-                playerSelection=playerSelection.toLowerCase();
                 if (playerSelection!='rock'&&playerSelection!='paper'&&playerSelection!='scissors') {
                     return "You must enter rock, paper, or scissors.";
                 } else if (playerSelection=='rock'&&computerSelection=='rock') {
@@ -42,6 +41,7 @@
                 let computerScore=0;
                 for (let i=5; i>0; i--) {
                     playerSelection = prompt('Enter rock, paper or scissors','rock');
+                    if (playerSelection==null) return console.log("Player aborted game.")
                     gameResults=playGame(playerSelection,computerPlay());
                     console.log(gameResults);
                     if (gameResults.includes("play again")) {
